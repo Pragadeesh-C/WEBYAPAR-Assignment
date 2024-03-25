@@ -1,0 +1,49 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Bebas.ttf",
+      "sha1": "8b3aaeb978f3cb5f575860774b50c332338563c1"
+    },
+    {
+      "path": "src/assets/fonts/IntegralCF-Bold.otf",
+      "sha1": "697b7714540cb0db58a3f7fe677c4526ab707100"
+    },
+    {
+      "path": "src/assets/fonts/IntegralCF-DemiBold.otf",
+      "sha1": "703a332eb798e4ae9c91fc403e6d34f12d7abb92"
+    },
+    {
+      "path": "src/assets/fonts/IntegralCF-ExtraBold.otf",
+      "sha1": "100ff5ed0ad9eac056a55747c48054f2c4a8ff6d"
+    },
+    {
+      "path": "src/assets/fonts/IntegralCF-Heavy.otf",
+      "sha1": "2ff29b3e00475f20e1602d3c7c0c05b85b885f64"
+    },
+    {
+      "path": "src/assets/fonts/IntegralCF-Medium.otf",
+      "sha1": "6fa1267a755589c8a1c2a9ef471ec4220f51e6fe"
+    },
+    {
+      "path": "src/assets/fonts/IntegralCF-Regular.otf",
+      "sha1": "4e0be67cc7943a7d10192ab527e64551e6191931"
+    },
+    {
+      "path": "src/assets/fonts/Poppins.ttf",
+      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
+    },
+    {
+      "path": "src/assets/fonts/Sen-Bold.ttf",
+      "sha1": "b7bc27d0ca62766fe67de9c2c607c64e0f4dbef7"
+    },
+    {
+      "path": "src/assets/fonts/Sen-ExtraBold.ttf",
+      "sha1": "19486580d55146893658081dab883aaf0703ac86"
+    },
+    {
+      "path": "src/assets/fonts/Sen.ttf",
+      "sha1": "cfcb5fe099b56b16e49dd86f2bda156b87fa7018"
+    }
+  ]
+}
