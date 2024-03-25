@@ -45,7 +45,6 @@ const FetchPage = () => {
         headers: headers,
       })
       .then((res) => {
-        console.log(res.data.data);
         const data = res.data.data;
         setData(data);
         setIsLoading(false);
@@ -71,7 +70,6 @@ const FetchPage = () => {
         </View>
       ) : (
         <View style={styles.container}>
-          {/* <ScrollView> */}
           <Text style={styles.headText}>Images Uploaded</Text>
           <Animated.FlatList
             data={sortedData}
@@ -88,8 +86,8 @@ const FetchPage = () => {
               />
             )}
             contentContainerStyle={{}}
+            keyExtractor={(item, index) => index.toString()}
           />
-          {/* </ScrollView> */}
         </View>
       )}
     </>
@@ -109,7 +107,7 @@ const styles = StyleSheet.create({
     fontFamily: "Sen-Bold",
     fontSize: 20,
     textAlign: "center",
-    marginTop: "10%",
+    marginTop: "15%",
     color: "black",
   },
   loadingView: {

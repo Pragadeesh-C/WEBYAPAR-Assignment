@@ -1,10 +1,10 @@
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { memo } from "react";
 import Animated from "react-native-reanimated";
 
 const { width, height } = Dimensions.get("window");
 
-const DataViewComponent = ({ imageUrl, longitude, latitude }) => {
+const DataViewComponent = memo(({ imageUrl, longitude, latitude }) => {
   return (
     <View style={styles.dataContainer}>
       <Animated.View style={styles.containerStyling}>
@@ -32,10 +32,9 @@ const DataViewComponent = ({ imageUrl, longitude, latitude }) => {
       </Animated.View>
     </View>
   );
-};
+});
 
 export default DataViewComponent;
-console.log("width", width * 0.72);
 
 const styles = StyleSheet.create({
   dataContainer: {

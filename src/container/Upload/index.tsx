@@ -2,6 +2,7 @@ import {
   ActivityIndicator,
   Alert,
   Image,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -38,6 +39,10 @@ const Upload = () => {
       setIsLoading(false);
       Alert.alert("Image not Selected!", "Select an Image first!");
     }
+    if(count && !image){
+      setIsLoading(false);
+      Alert.alert("Image not Selected!", "Select an Image first!");
+    }
     if (image) {
       handleSendImage();
     } else {
@@ -49,23 +54,22 @@ const Upload = () => {
 
   const handleCameraLaunch = () => {
     setCount(count + 1);
-    console.log("asdasds");
     const options = {
       mediaType: "photo",
       includeBase64: false,
       maxHeight: 2000,
       maxWidth: 2000,
     };
-    console.log("CAM");
     launchCamera(options, (response) => {
       if (response.didCancel) {
         console.log("User cancelled camera");
+        Alert.alert('Alert','User cancelled camera')
       } else if (response.error) {
         console.log("Camera Error: ", response.error);
+        Alert.alert('Camera Error',response.errorMessage)
       } else {
         let imageUri = response.uri || response.assets?.[0]?.uri;
         setSelectedImage(imageUri);
-        console.log("URL", image);
       }
     });
   };
@@ -73,7 +77,6 @@ const Upload = () => {
   const handleImagePicker = async () => {
     setCount(count + 1);
     await launchImageLibrary({ mediaType: "photo" }, (response) => {
-      console.log("ImagePicker response:", response.assets[0]); // Add this line for debugging
       setSelectedImage(response.assets[0].uri);
     });
   };
@@ -83,17 +86,15 @@ const Upload = () => {
       (resp) => {
         setLatitude(resp.coords.latitude);
         setLongitude(resp.coords.longitude);
-        console.log(latitude, longitude);
       },
       (err) => {
-        console.log(err);
+        Alert.alert('Error!',"Error getting location")
       },
       { enableHighAccuracy: true }
     );
   };
 
   const handleSendImage = async () => {
-    console.log("image", latitude, longitude, image);
     const formData = new FormData();
     formData.append("latitude", latitude);
     formData.append("longitude", longitude);
@@ -103,7 +104,6 @@ const Upload = () => {
       type: "image/jpg",
     });
 
-    console.log(image, latitude, longitude);
 
     const headers = {
       Authorization: Token,
@@ -114,7 +114,6 @@ const Upload = () => {
 
     const postFormData = async () => {
       try {
-        const url = "https://test.webyaparsolutions.com/form";
         await axios
           .post(`${process.env.ENDPOINT}/form`, formData, { headers: headers })
           .then((response) => {
@@ -158,14 +157,14 @@ const Upload = () => {
   };
 
   return (
-    // <ScrollView style={{flex:1,backgroundColor:'#f6f6f6'}}>
+    <ScrollView style={{flex:1,backgroundColor:'#f6f6f6'}}>
     <View style={styles.container}>
       <Text style={styles.headerText}>Upload</Text>
       <View style={styles.locationView}>
         <Text style={styles.locationHeadText}>Latitude</Text>
         <TextInputComponent
           placeholder={latitude}
-          value={latitude}
+          value={`${latitude}`}
           onChange={setLatitude}
         />
       </View>
@@ -173,7 +172,7 @@ const Upload = () => {
         <Text style={styles.locationHeadText}>Longitude</Text>
         <TextInputComponent
           placeholder={longitude}
-          value={longitude}
+          value={`${longitude}`}
           onChange={setLongitude}
         />
       </View>
@@ -197,13 +196,13 @@ const Upload = () => {
         </View>
       ) : (
         <ButtonComponent
-          style={{ marginBottom: "20%", width: "100%" }}
+          style={{ width: "100%",marginBottom:'30%' }}
           buttonText={"Upload"}
           onPress={handleButtonPress}
         />
       )}
     </View>
-    // </ScrollView>
+     </ScrollView>
   );
 };
 
@@ -222,7 +221,7 @@ const styles = StyleSheet.create({
     color: "black",
     textAlign: "center",
     marginBottom: 15,
-    marginTop: "5%",
+    marginTop: "15%",
   },
   locationHeadText: {
     color: "black",
@@ -259,7 +258,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 20,
-    marginBottom: "10%",
+    marginBottom: "30%",
     flexDirection: "row",
   },
   uploadText: {

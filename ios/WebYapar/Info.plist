@@ -23,22 +23,9 @@
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Fontisto.ttf</string>
-		<string>IntegralCF-Bold.otf</string>
-		<string>IntegralCF-DemiBold.otf</string>
-		<string>IntegralCF-ExtraBold.otf</string>
-		<string>IntegralCF-Heavy.otf</string>
-		<string>IntegralCF-Medium.otf</string>
-		<string>IntegralCF-Regular.otf</string>
-		<string>Bebas.ttf</string>
-		<string>Poppins.ttf</string>
-		<string>Sen-Bold.ttf</string>
-		<string>Sen-ExtraBold.ttf</string>
-		<string>Sen.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow access to the photo library for selecting images</string>
 	<key>CFBundleDisplayName</key>
 	<string>WebYapar</string>
 	<key>CFBundleExecutable</key>
@@ -71,7 +58,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

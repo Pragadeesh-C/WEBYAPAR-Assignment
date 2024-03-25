@@ -28,7 +28,6 @@ const Register = () => {
         password,
       })
       .then((response) => {
-        console.log(response.data);
         const success = response.data.success;
         const message = response.data.message;
         if (success) {
@@ -36,7 +35,6 @@ const Register = () => {
           setIsLoading(false);
           navigate("Login");
         } else {
-          console.log(message);
           setIsLoading(false);
           Alert.alert("Error", message);
         }

@@ -19,7 +19,6 @@ const SignIn = () => {
   const { navigate } = useNavigation();
   const navigation = useNavigation();
   const [isLoading, setIsLoading] = useState(false);
-  console.log(process.env.ENDPOINT)
 
   const Login = async () => {
     setIsLoading(true);
@@ -29,7 +28,6 @@ const SignIn = () => {
         password,
       })
       .then(async (res) => {
-        console.log(res.data);
         const response = res.data;
         const success = response.success;
         const message = response.message;
